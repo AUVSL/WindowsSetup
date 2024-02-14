@@ -6,6 +6,7 @@ winget  install 9WZDNCRDK3WP #Slack
 winget install Anaconda3
 winget install "Microsoft Visual Studio Code"
 winget install Git.Git
+winget install Mozilla.Firefox
 
 
 function Show-ProgressBar {
