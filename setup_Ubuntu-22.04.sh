@@ -36,4 +36,4 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 mkdir ~/catkin_ws/src -p
-code ~/catkin_ws/srcauvsl
+code ~/catkin_ws/src
