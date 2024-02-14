@@ -47,7 +47,7 @@ function WSL-Setup{
     # Wait for the installation process to start and display the username prompt
     Write-Host "Waiting for the installation process to start..."
     
-    Show-ProgressBar -Duration 60
+    Show-ProgressBar -Duration 180
 
     
     # Simulate manual input for username and password
@@ -116,6 +116,7 @@ $isInstalled2 = Check-WSLDistributions -DistributionNames $distros
 if($isInstalled1 -or $isInstalled2){
     Restart-Computer -Confirm
 }
+else{
 
 # Define the URL of the Git repository to clone
 $gitRepoUrl = "https://github.com/AUVSL/WindowsSetup.git"
@@ -163,4 +164,5 @@ $distros = @("Ubuntu-18.04" , "Ubuntu-22.04")
 
 foreach ($distro in $distros) {
     wsl -d $distro bash -c "sudo apt-get update; sudo apt-get upgrade; sudo apt-get install dos2unix; chmod +x setup_$distro.sh; dos2unix setup_$distro.sh; ./setup_$distro.sh; exit"
+}
 }
