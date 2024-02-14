@@ -171,6 +171,6 @@ foreach ($distro in $distros) {
 
 Set-Location -Path $destinationDirectory
 
-Remove-Item -Recurse -Force -Confirm $clonedDest
+Remove-Item -Recurse -Force $clonedDest
 
 }
