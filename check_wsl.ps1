@@ -151,7 +151,9 @@ Write-Host "Repository cloned successfully!"
 $clonedRepoName = $gitRepoUrl.Split("/")[-1].Replace(".git", "")
 
 # Change directory into the cloned repository
-Set-Location -Path (Join-Path -Path $destinationDirectory -ChildPath $clonedRepoName)
+$clonedDest = (Join-Path -Path $destinationDirectory -ChildPath $clonedRepoName)
+
+Set-Location -Path $clonedDest
 
 # Print out the current directory after changing
 Write-Host "Current directory after cloning: $(Get-Location)"
@@ -166,4 +168,9 @@ $distros = @("Ubuntu-18.04" , "Ubuntu-22.04")
 foreach ($distro in $distros) {
     wsl -d $distro bash -c "sudo apt-get update; sudo apt-get upgrade; sudo apt-get install dos2unix; chmod +x setup_$distro.sh; dos2unix setup_$distro.sh; ./setup_$distro.sh; exit"
 }
+
+Set-Location -Path $destinationDirectory
+
+Remove-Item -Recurse -Force -Confirm $clonedDest
+
 }
