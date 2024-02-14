@@ -22,7 +22,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install ros-humble-desktop  -y
+sudo apt install ros-humble-desktop python3-colcon-common-extensions -y
 
 sudo apt install ros-humble-clearpath-desktop  -y
 sudo apt-get install ros-humble-clearpath-simulator  -y
